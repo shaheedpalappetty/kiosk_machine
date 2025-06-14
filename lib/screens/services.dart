@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testing/screens/payment.dart';
+import 'package:testing/l10n/app_localizations.dart';
 import 'package:testing/screens/plate_details.dart';
-import 'package:testing/screens/welcome.dart';
+import 'package:testing/screens/topup_wallet.dart';
 import 'package:testing/utilities/textstyle.dart';
 import 'package:testing/widgets/header.dart';
 import 'package:testing/widgets/services_widget.dart';
@@ -24,23 +24,23 @@ class ServicesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               spacing: 25,
               children: [
-                const Text(
-                  "Services",
+                Text(
+                  AppLocalizations.of(context)!.services,
                   style: AppTextStyles.heading,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 ServicesWidget(
-                  text: "TopUp Wallet",
+                  text: AppLocalizations.of(context)!.topupWallet,
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PaymentScreen(),
+                        builder: (context) => const TopupWallet(),
                       )),
                 ),
                 ServicesWidget(
-                  text: "Pay Parking",
+                  text: AppLocalizations.of(context)!.payParking,
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -48,7 +48,7 @@ class ServicesScreen extends StatelessWidget {
                       )),
                 ),
                 ServicesWidget(
-                  text: "Pay Fines",
+                  text: AppLocalizations.of(context)!.payFines,
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(

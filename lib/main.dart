@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:testing/l10n/app_localizations.dart';
+import 'package:testing/l10n/l10n.dart';
 import 'package:testing/logic/localization/localization_bloc.dart';
 import 'package:testing/logic/localization/localization_state.dart';
 import 'package:testing/screens/welcome.dart';
@@ -21,16 +24,13 @@ class ParkinKioskApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             locale: Locale(state.locale, ''),
-            supportedLocales: const [
-              Locale('en'),
-              Locale('ar'),
+            supportedLocales: L10n.all,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
             ],
-            /*localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],*/
             debugShowCheckedModeBanner: false,
             title: 'ParkinKioskApp',
             theme: ThemeData(

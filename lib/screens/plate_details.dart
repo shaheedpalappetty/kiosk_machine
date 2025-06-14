@@ -39,7 +39,7 @@ class PlateDetails extends StatelessWidget {
                     alignment: WrapAlignment.center,
                     spacing: 12,
                     runSpacing: 12,
-                    children: alphabets.map((plateCode) {
+                    children: dubaiPlateCodes.map((plateCode) {
                       final isSelected =
                           plateCode == state.plateDetails.plateCode;
                       return ChoiceChip(
