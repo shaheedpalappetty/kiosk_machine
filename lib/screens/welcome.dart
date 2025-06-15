@@ -114,7 +114,7 @@ class WelcomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               spacing: 8,
                               children: [
-                                Text(
+                                const Text(
                                   '🇺🇸',
                                   style: TextStyle(fontSize: 20),
                                 ),
@@ -155,7 +155,7 @@ class WelcomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               spacing: 8,
                               children: [
-                                Text(
+                                const Text(
                                   '🇦🇪',
                                   style: TextStyle(fontSize: 20),
                                 ),

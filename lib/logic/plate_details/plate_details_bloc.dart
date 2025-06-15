@@ -11,6 +11,7 @@ class PlateDetailsBloc extends Bloc<PlateDetailsEvent, PlateDetailsState> {
     on<PlateSourceSelected>(_onPlateSourceSelected);
     on<PlateNumberSelected>(_onPlateNumberSelected);
     on<PlateCodeChanged>(_onPlateCodeChanged);
+    on<PlateSourceChanged>(_onPlateSourceChanged);
   }
 
   FutureOr<void> _onPlateCodeSelected(
@@ -41,6 +42,16 @@ class PlateDetailsBloc extends Bloc<PlateDetailsEvent, PlateDetailsState> {
       PlateCodeChanged event, Emitter<PlateDetailsState> emit) {
     final newPlateDetails =
         state.plateDetails.copyWith(plateCode: event.plateCode);
+
+    emit(state.copyWith(
+        plateDetails: newPlateDetails,
+        isPlateDetailsSet: newPlateDetails != PlateDetails.empty));
+  }
+
+  FutureOr<void> _onPlateSourceChanged(
+      PlateSourceChanged event, Emitter<PlateDetailsState> emit) {
+    final newPlateDetails = state.plateDetails
+        .copyWith(plateSource: event.plateSource, plateCode: "");
 
     emit(state.copyWith(
         plateDetails: newPlateDetails,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testing/l10n/app_localizations.dart';
+import 'package:testing/utilities/constants.dart';
 
 class Footer extends StatelessWidget {
   final VoidCallback onBackPressed;
@@ -11,7 +12,7 @@ class Footer extends StatelessWidget {
     super.key,
     required this.onBackPressed,
     required this.onContinuePressed,
-    this.isContinueEnabled = true,
+    this.isContinueEnabled = false,
     this.continueText,
   });
 
@@ -20,13 +21,16 @@ class Footer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       child: SafeArea(
-        child: Row(
-          children: [
-            Expanded(
-              child: TextButton(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
                 onPressed: onBackPressed,
                 style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                     side: BorderSide(color: Colors.grey.shade300),
@@ -41,14 +45,12 @@ class Footer extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: ElevatedButton(
+              ElevatedButton(
                 onPressed: isContinueEnabled ? onContinuePressed : null,
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  backgroundColor: Theme.of(context).primaryColor,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  backgroundColor: buttonBgColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -64,8 +66,8 @@ class Footer extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
